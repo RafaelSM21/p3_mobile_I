@@ -1,16 +1,16 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
+import { IndicatorCardProps } from '../types/healthTypes';
+import { colors } from '../styles/global';
 
-interface Props {
-  label: string;
-  value: number;
-  unit: string;
-  iconName: string;
-  color: string;
-}
-
-export default function IndicatorCard({ label, value, unit, iconName, color }: Props) {
+const IndicatorCard: React.FC<IndicatorCardProps> = ({ 
+  label, 
+  value, 
+  unit, 
+  iconName, 
+  color 
+}) => {
   return (
     <View style={[styles.card, { borderLeftWidth: 4, borderLeftColor: color }]}>
       <View style={styles.header}>
@@ -23,11 +23,11 @@ export default function IndicatorCard({ label, value, unit, iconName, color }: P
       </Text>
     </View>
   );
-}
+};
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: colors.white,
     borderRadius: 8,
     padding: 16,
     marginBottom: 16,
@@ -58,3 +58,5 @@ const styles = StyleSheet.create({
     color: '#666',
   },
 });
+
+export default IndicatorCard;
